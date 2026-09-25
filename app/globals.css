@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teh: #c99a6b;
+  --color-kental: #2b1709;
+  --color-busa: #f4e8d6;
+  --color-blirik: #1d5a45;
+  --color-aren: #6e3210;
+
+  --font-display: var(--font-anybody), sans-serif;
+  --font-body: var(--font-literata), Georgia, serif;
+}
+
+:root {
+  /* Butiran kertas: noise SVG, warna teh pekat, opasitas rendah. */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .09 0 0 0 0 .03 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  /* Bintik enamel blirik: tiga lapis bintik dengan ukuran petak prima supaya polanya tidak terlihat berulang. */
+  --blirik-gelap:
+    radial-gradient(circle at 23% 31%, rgb(43 23 9 / 0.28) 0 1.1px, transparent 1.7px) 0 0 / 37px 41px,
+    radial-gradient(circle at 71% 64%, rgb(244 232 214 / 0.4) 0 1px, transparent 1.5px) 0 0 / 53px 47px,
+    radial-gradient(circle at 42% 83%, rgb(110 50 16 / 0.3) 0 2px, transparent 2.7px) 0 0 / 97px 89px;
+  --blirik-terang:
+    radial-gradient(circle at 23% 31%, rgb(244 232 214 / 0.14) 0 1.1px, transparent 1.7px) 0 0 / 37px 41px,
+    radial-gradient(circle at 71% 64%, rgb(201 154 107 / 0.22) 0 1px, transparent 1.5px) 0 0 / 53px 47px,
+    radial-gradient(circle at 42% 83%, rgb(29 90 69 / 0.5) 0 2px, transparent 2.7px) 0 0 / 97px 89px;
+}
+
+body {
+  background: var(--color-teh);
+  color: var(--color-kental);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.lapis-teh {
+  background: var(--blirik-gelap), var(--grain), var(--color-teh);
+}
+.lapis-malam {
+  background: var(--blirik-terang), var(--grain), var(--color-kental);
+  color: var(--color-busa);
+}
+.lapis-blirik {
+  background: var(--blirik-terang), var(--grain), var(--color-blirik);
+  color: var(--color-busa);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 100;
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+}
+
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+/* ── Satu-satunya animasi: tarikan saat halaman dimuat ── */
+.tarik {
+  font-variation-settings: "wdth" 150;
+  animation: regang 1.7s cubic-bezier(0.16, 0.9, 0.2, 1) 0.45s both;
+}
+.aliran {
+  transform-box: fill-box;
+  transform-origin: top;
+  animation: tuang 0.9s cubic-bezier(0.55, 0, 0.25, 1) 0.2s both;
+}
+.busa-naik {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: naik 0.8s cubic-bezier(0.2, 0.8, 0.3, 1.2) 1s both;
+}
+
+@keyframes regang {
+  from { font-variation-settings: "wdth" 50; }
+  to { font-variation-settings: "wdth" 150; }
+}
+@keyframes tuang {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes naik {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tarik, .aliran, .busa-naik { animation: none; }
+}
+
+/* Papan menu: bingkai tebal hijau enamel dengan sudut seperti bibir cangkir. */
+.papan {
+  border: 10px solid var(--color-blirik);
+  border-radius: 28px;
+  box-shadow: inset 0 0 0 2px rgb(244 232 214 / 0.18);
+}
+.titik-titik {
+  flex: 1;
+  border-bottom: 2px dotted rgb(244 232 214 / 0.35);
+  transform: translateY(-0.35em);
+  min-width: 1.5rem;
+}
