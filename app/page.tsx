@@ -45,29 +45,31 @@ function Tarikan() {
     <svg viewBox="0 0 280 1000" className="h-full w-full" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
       <defs>
         <pattern id="bintik" width="18" height="18" patternUnits="userSpaceOnUse">
-          <circle cx="4" cy="5" r="1.6" fill="#1d5a45" />
-          <circle cx="13" cy="12" r="1.1" fill="#1d5a45" />
-          <circle cx="9" cy="16" r="0.7" fill="#2b1709" />
+          <circle cx="4" cy="5" r="1.6" fill="#2a558c" />
+          <circle cx="13" cy="12" r="1.1" fill="#2a558c" />
+          <circle cx="9" cy="16" r="0.7" fill="#204c73" />
         </pattern>
       </defs>
 
-      {/* Teko tarik, miring 40° */}
+      {/* Teko tarik, miring 40°, goyang pelan seperti tangan menuang */}
       <g transform="translate(95 110) rotate(40)">
-        <path d="M-40 -42 C-78 -42 -78 34 -40 34" fill="none" stroke="#2b1709" strokeWidth="9" />
-        <rect x="-40" y="-70" width="80" height="140" rx="5" fill="#f4e8d6" stroke="#2b1709" strokeWidth="5" />
-        <path d="M-40 -48 H40 M-40 48 H40" stroke="#2b1709" strokeWidth="2.5" opacity=".5" />
+        <g className="teko-goyang">
+          <path d="M-40 -42 C-78 -42 -78 34 -40 34" fill="none" stroke="#204c73" strokeWidth="9" />
+          <rect x="-40" y="-70" width="80" height="140" rx="5" fill="#f2f2f2" stroke="#204c73" strokeWidth="5" />
+          <path d="M-40 -48 H40 M-40 48 H40" stroke="#204c73" strokeWidth="2.5" opacity=".5" />
+        </g>
       </g>
 
       {/* Aliran teh */}
-      <path className="aliran" d="M167 84 L177 84 C176 400 175 640 175 862 L169 862 C169 640 168 400 167 84 Z" fill="#6e3210" />
+      <path className="aliran" d="M167 84 L177 84 C176 400 175 640 175 862 L169 862 C169 640 168 400 167 84 Z" fill="#d94350" />
 
-      {/* Cangkir blirik */}
-      <path className="busa-naik" d="M122 864 C122 832 222 832 222 864 Z" fill="#f4e8d6" stroke="#2b1709" strokeWidth="2" />
-      <path d="M226 888 C262 888 262 952 226 952" fill="none" stroke="#1d5a45" strokeWidth="11" />
-      <path d="M118 864 H226 L222 978 C222 986 122 986 122 978 Z" fill="#f4e8d6" />
+      {/* Cangkir porselen biru-putih */}
+      <path className="busa-naik" d="M122 864 C122 832 222 832 222 864 Z" fill="#f2f2f2" stroke="#204c73" strokeWidth="2" />
+      <path d="M226 888 C262 888 262 952 226 952" fill="none" stroke="#2a558c" strokeWidth="11" />
+      <path d="M118 864 H226 L222 978 C222 986 122 986 122 978 Z" fill="#f2f2f2" />
       <path d="M118 864 H226 L222 978 C222 986 122 986 122 978 Z" fill="url(#bintik)" />
-      <path d="M118 864 H226 L222 978 C222 986 122 986 122 978 Z" fill="none" stroke="#2b1709" strokeWidth="3" />
-      <rect x="114" y="859" width="116" height="9" rx="4.5" fill="#1d5a45" />
+      <path d="M118 864 H226 L222 978 C222 986 122 986 122 978 Z" fill="none" stroke="#204c73" strokeWidth="3" />
+      <rect x="114" y="859" width="116" height="9" rx="4.5" fill="#2a558c" />
     </svg>
   );
 }
@@ -76,7 +78,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="lapis-teh relative overflow-hidden">
+      <section className="lapis-siang relative overflow-hidden">
         <nav className="relative z-10 mx-auto flex max-w-7xl items-baseline justify-between gap-6 px-5 pt-6 md:px-10">
           <a href="#" className="display text-3xl font-black" style={{ fontVariationSettings: '"wdth" 130' }}>
             Seduh
@@ -96,7 +98,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-5 pt-24 pb-16 md:px-10 md:pt-40 md:pb-28">
           <h1 className="display font-black">
             <span className="block text-[clamp(3rem,11vw,9rem)]">Teh</span>
-            <span className="tarik -ml-[0.04em] block text-[clamp(4rem,18.5vw,17rem)] text-aren">tarik</span>
+            <span className="tarik -ml-[0.04em] block text-[clamp(4rem,18.5vw,17rem)] text-merah">tarik</span>
           </h1>
           <p className="mt-8 max-w-[34ch] text-lg md:mt-10 md:text-xl">
             Teh hitam, susu, dan satu tarikan panjang dari teko ke gelas. Buka sore sampai tengah malam di
@@ -105,7 +107,7 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
             <a
               href={WA_KARANGANYAR}
-              className="bg-blirik px-6 py-3.5 font-display text-lg font-bold text-busa hover:bg-kental"
+              className="bg-langit px-6 py-3.5 font-display text-xl font-bold text-kertas hover:bg-panas"
               style={{ fontVariationSettings: '"wdth" 115' }}
             >
               Pesan lewat WhatsApp
@@ -118,13 +120,13 @@ export default function Home() {
       </section>
 
       {/* Cerita */}
-      <section className="lapis-teh border-t-2 border-kental/15">
+      <section className="lapis-siang border-t-2 border-langit/15">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 md:grid-cols-12 md:px-10 md:py-32">
           <div className="md:col-span-7">
             <h2 className="display text-[clamp(2.4rem,6vw,4.75rem)] font-extrabold" style={{ fontVariationSettings: '"wdth" 75' }}>
               Dari Nusantara diSeduh untuk dunia
             </h2>
-            <blockquote className="mt-10 border-l-4 border-aren pl-6 text-2xl leading-snug italic md:text-[1.75rem]">
+            <blockquote className="mt-10 border-l-4 border-merah pl-6 text-2xl leading-snug italic md:text-[1.75rem]">
               Seduh lahir dari keyakinan bahwa rasa Nusantara punya tempat istimewa di hati siapa pun.
             </blockquote>
             <div className="mt-8 max-w-[60ch] space-y-5">
@@ -153,7 +155,7 @@ export default function Home() {
       </section>
 
       {/* Cara ditarik */}
-      <section id="cara" className="lapis-teh">
+      <section id="cara" className="lapis-siang">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-24 md:grid-cols-12 md:px-10 md:pb-32">
           <figure className="md:col-span-5">
             <Image
@@ -173,7 +175,7 @@ export default function Home() {
             <ol className="mt-10 space-y-9">
               {langkah.map(([judul, isi], i) => (
                 <li key={judul} className="grid grid-cols-[3.5rem_1fr] gap-4">
-                  <span className="display text-5xl font-black text-aren" style={{ fontVariationSettings: '"wdth" 60' }}>
+                  <span className="display text-5xl font-black text-merah" style={{ fontVariationSettings: '"wdth" 60' }}>
                     {i + 1}
                   </span>
                   <div>
@@ -190,7 +192,7 @@ export default function Home() {
       </section>
 
       {/* Menu */}
-      <section id="menu" className="lapis-malam">
+      <section id="menu" className="lapis-siang">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
           <div className="grid gap-8 md:grid-cols-12 md:items-end">
             <h2 className="display text-[clamp(4rem,12vw,9rem)] font-black md:col-span-7" style={{ fontVariationSettings: '"wdth" 140' }}>
@@ -202,10 +204,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="papan mt-12 grid gap-12 bg-kental p-6 sm:p-10 md:grid-cols-2 md:gap-16 md:p-14">
+          <div className="papan mt-12 grid gap-12 bg-kertas p-6 sm:p-10 md:grid-cols-2 md:gap-16 md:p-14">
             {menu.map((k) => (
               <div key={k.kelompok}>
-                <h3 className="display text-3xl font-bold text-teh" style={{ fontVariationSettings: '"wdth" 120' }}>
+                <h3 className="display text-3xl font-bold text-merah" style={{ fontVariationSettings: '"wdth" 120' }}>
                   {k.kelompok}
                 </h3>
                 <ul className="mt-6 space-y-5">
@@ -228,10 +230,10 @@ export default function Home() {
       {/* Keunggulan */}
       <section className="lapis-malam">
         <div className="mx-auto max-w-7xl px-5 pb-24 md:px-10 md:pb-32">
-          <h2 className="display text-[clamp(2.4rem,6vw,4.75rem)] font-extrabold text-teh" style={{ fontVariationSettings: '"wdth" 75' }}>
+          <h2 className="display text-[clamp(2.4rem,6vw,4.75rem)] font-extrabold" style={{ fontVariationSettings: '"wdth" 75' }}>
             Yang bikin mampir lagi
           </h2>
-          <ul className="mt-10 max-w-[46ch] space-y-7 border-l-[6px] border-aren pl-6 text-[1.35rem] leading-snug md:ml-[33%] md:text-[1.6rem]">
+          <ul className="mt-10 max-w-[46ch] space-y-7 border-l-[6px] border-muda pl-6 text-[1.35rem] leading-snug md:ml-[33%] md:text-[1.6rem]">
             <li>Segelas paling murah Rp6.000. Yang paling mahal Rp16.000.</li>
             <li>Outlet Karanganyar buka sampai jam 12 malam, pas untuk yang pulang kerja larut.</li>
             <li>Teh Tarik Malaka pakai teh hitam Aceh. Kopi Sanger dibuat gaya kopi susu Aceh.</li>
@@ -241,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* Testimoni */}
-      <section className="lapis-teh">
+      <section className="lapis-siang">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
           <h2 className="display text-[clamp(2.4rem,6vw,4.75rem)] font-extrabold" style={{ fontVariationSettings: '"wdth" 75' }}>
             Kata yang sudah mampir
@@ -250,7 +252,7 @@ export default function Home() {
             {testimoni.map(([kutipan, nama], i) => (
               <figure key={nama} className={["max-w-[26ch]", "max-w-[26ch] md:mt-28", "max-w-[26ch] md:mt-56"][i]}>
                 <blockquote className="text-[1.6rem] leading-snug italic md:text-[2rem]">“{kutipan}”</blockquote>
-                <figcaption className="mt-3 font-display font-semibold text-aren">{nama}</figcaption>
+                <figcaption className="mt-3 font-display font-semibold text-muda">{nama}</figcaption>
               </figure>
             ))}
           </div>
@@ -260,14 +262,14 @@ export default function Home() {
       {/* Lokasi dan jam */}
       <section id="lokasi" className="lapis-malam">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
-          <h2 className="display text-[clamp(2.4rem,6vw,4.75rem)] font-extrabold text-teh" style={{ fontVariationSettings: '"wdth" 75' }}>
+          <h2 className="display text-[clamp(2.4rem,6vw,4.75rem)] font-extrabold" style={{ fontVariationSettings: '"wdth" 75' }}>
             Buka sore, tutup tengah malam
           </h2>
           <div className="mt-14 grid gap-14 md:grid-cols-12">
             <div className="space-y-12 md:col-span-5">
               <div>
                 <h3 className="display text-3xl font-bold">Karanganyar Kota</h3>
-                <p className="display mt-2 text-[clamp(3rem,8vw,5.5rem)] font-black text-teh" style={{ fontVariationSettings: '"wdth" 60' }}>
+                <p className="display mt-2 text-[clamp(3rem,8vw,5.5rem)] font-black" style={{ fontVariationSettings: '"wdth" 60' }}>
                   15.00–00.00
                 </p>
                 <p className="mt-2">
@@ -278,7 +280,7 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="display text-3xl font-bold">Sragen</h3>
-                <p className="display mt-2 text-[clamp(3rem,8vw,5.5rem)] font-black text-teh" style={{ fontVariationSettings: '"wdth" 60' }}>
+                <p className="display mt-2 text-[clamp(3rem,8vw,5.5rem)] font-black" style={{ fontVariationSettings: '"wdth" 60' }}>
                   15.00–23.00
                 </p>
                 <p className="mt-2">Jl. Sukowati No. 185, Sragen Kulon, barat Bank Jateng Sragen Kota.</p>
@@ -300,7 +302,7 @@ export default function Home() {
                 alt="Dua gelas teh susu dan roti di meja kedai"
                 width={1300}
                 height={867}
-                className="aspect-[4/3] w-full border-[6px] border-teh object-cover"
+                className="aspect-[4/3] w-full border-[6px] border-merah object-cover"
                 sizes="(min-width: 768px) 55vw, 100vw"
               />
             </div>
@@ -309,7 +311,7 @@ export default function Home() {
       </section>
 
       {/* Kontak */}
-      <section id="pesan" className="lapis-blirik">
+      <section id="pesan" className="lapis-cap">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
           <h2 className="display text-[clamp(3.5rem,12vw,9.5rem)] font-black" style={{ fontVariationSettings: '"wdth" 130' }}>
             Pesan dari rumah
@@ -317,25 +319,25 @@ export default function Home() {
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             <div>
               <h3 className="display text-2xl font-bold">WhatsApp Karanganyar</h3>
-              <a className="mt-2 inline-block text-xl underline underline-offset-4" href={WA_KARANGANYAR}>
+              <a className="mt-2 inline-block text-xl font-bold underline underline-offset-4" href={WA_KARANGANYAR}>
                 0895-3226-54664
               </a>
             </div>
             <div>
               <h3 className="display text-2xl font-bold">WhatsApp Sragen</h3>
-              <a className="mt-2 inline-block text-xl underline underline-offset-4" href={WA_SRAGEN}>
+              <a className="mt-2 inline-block text-xl font-bold underline underline-offset-4" href={WA_SRAGEN}>
                 0896-4803-5333
               </a>
             </div>
             <div>
               <h3 className="display text-2xl font-bold">Pesan antar</h3>
-              <a className="mt-2 inline-block text-xl underline underline-offset-4" href={PESAN_ANTAR}>
+              <a className="mt-2 inline-block text-xl font-bold underline underline-offset-4" href={PESAN_ANTAR}>
                 GoFood dan ShopeeFood
               </a>
             </div>
           </div>
         </div>
-        <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 border-t border-busa/30 px-5 py-8 text-[0.95rem] md:px-10">
+        <footer className="lapis-malam mx-auto flex max-w-7xl flex-wrap justify-between gap-4 border-t border-kertas/30 px-5 py-8 text-[0.95rem] md:px-10">
           <span className="display text-2xl font-black" style={{ fontVariationSettings: '"wdth" 130' }}>Seduh</span>
           <a className="underline underline-offset-4" href={INSTAGRAM}>Instagram @tehtarikseduh</a>
         </footer>
